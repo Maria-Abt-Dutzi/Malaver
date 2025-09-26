@@ -1,0 +1,1224 @@
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
+  position: relative;
+  perspective: 1000px;
+  margin: 80px auto 0;
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.card {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+.card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+
+  img {
+    filter: none;
+  }
+}
+
+.card.left-2 {
+  z-index: 1;
+  transform: translateX(-400px) scale(0.8) translateZ(-300px);
+  opacity: 0.7;
+
+  img {
+    filter: grayscale(100%);
+  }
+}
+
+.card.left-1 {
+  z-index: 5;
+  transform: translateX(-200px) scale(0.9) translateZ(-100px);
+  opacity: 0.9;
+
+  img {
+    filter: grayscale(100%);
+  }
+}
+
+.card.right-1 {
+  z-index: 5;
+  transform: translateX(200px) scale(0.9) translateZ(-100px);
+  opacity: 0.9;
+
+  img {
+    filter: grayscale(100%);
+  }
+}
+
+.card.right-2 {
+  z-index: 1;
+  transform: translateX(400px) scale(0.8) translateZ(-300px);
+  opacity: 0.7;
+
+  img {
+    filter: grayscale(100%);
+  }
+}
+
+.card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.artwork-info {
+  text-align: center;
+  margin-top: 40px;
+  transition: all 0.5s ease-out;
+}
+
+.artwork-title {
+  color: rgb(139, 92, 246); // purple-600
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100px;
+    height: 2px;
+    background: rgb(139, 92, 246);
+  }
+
+  &::before {
+    left: -120px;
+  }
+
+  &::after {
+    right: -120px;
+  }
+}
+
+.artwork-technique {
+  color: #848696;
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 0;
+  margin-top: -15px;
+  position: relative;
+}
+
+.artwork-description {
+  color: #6b7280;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: rgb(139, 92, 246);
+    transform: scale(1.2);
+  }
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(135, 135, 135, 0.6);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  font-size: 2.5rem;
+  border: none;
+  outline: none;
+  padding-bottom: 4px;
+  animation: pulse 2s infinite; /* Efecto de palpito continuo */
+
+  &:hover {
+    background: rgba(139, 92, 246, 0.8);
+    transform: translateY(-50%) scale(1.1);
+    animation: none; /* Detiene el pulso al hacer hover */
+  }
+
+  &.left {
+    left: 50px;
+    padding-right: 3px;
+    margin-left: 120px !important;
+  }
+
+  &.right {
+    right: 50px;
+    padding-left: 3px;
+    margin-right: 120px !important;
+  }
+}
+
+/* Animación de palpito más llamativa */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+// Título de la galería (en el componente padre)
+.gallery-title {
+  font-size: 7.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 92, 246, 0.35) 30%,
+    rgba(255, 255, 255, 0%) 76%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .gallery-title {
+    font-size: 4.5rem;
+  }
+
+  .carousel-container {
+    height: 350px;
+    margin-top: 60px;
+  }
+
+  .card {
+    width: 200px;
+    height: 280px;
+  }
+
+  .card.left-2 {
+    transform: translateX(-250px) scale(0.8) translateZ(-300px);
+  }
+
+  .card.left-1 {
+    transform: translateX(-120px) scale(0.9) translateZ(-100px);
+  }
+
+  .card.right-1 {
+    transform: translateX(120px) scale(0.9) translateZ(-100px);
+  }
+
+  .card.right-2 {
+    transform: translateX(250px) scale(0.8) translateZ(-300px);
+  }
+
+  .artwork-title {
+    font-size: 2rem;
+
+    &::before,
+    &::after {
+      width: 50px;
+    }
+
+    &::before {
+      left: -70px;
+    }
+
+    &::after {
+      right: -70px;
+    }
+  }
+
+  .artwork-technique {
+    font-size: 1.2rem;
+  }
+
+  .nav-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    margin-top: 195px !important;
+    padding-bottom: 2px;
+    animation: pulse 2s infinite;
+
+    &.left {
+    left: 20px;
+    padding-right: 3px;
+    margin-left: 10px !important;
+  }
+
+  &.right {
+    right: 20px;
+    padding-left: 3px;
+    margin-right: 10px !important;
+  }
+  }
+}
+// components/artwork-carousel/artwork-carousel.component.scss
+// ... (mantener todos los estilos existentes del carrusel)
+
+// /* Estilos del modal]]
+// Agregar esto en el modal-overlay existente
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // z-index: 9999 !important;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(15px);
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* SOBREESCRIBIR COMPORTAMIENTO EN MÓVILES */
+  @media (max-width: 768px) {
+    z-index: 2147483647 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(0, 0, 0, 0.98) !important;
+
+    // Forzar que el modal ocupe toda la pantalla
+    .modal-content {
+      z-index: 2147483647 !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      box-shadow: none !important;
+    }
+
+    .modal-body {
+      height: 100vh !important;
+      max-height: 100vh !important;
+      min-height: 100vh !important;
+      overflow-y: auto !important;
+      // margin-top: 80px !important;
+    }
+  }
+}
+
+
+.modal-content {
+  background: rgb(var(--color-background));
+  border-radius: 24px;
+  max-width: 95%;
+  max-height: 95%;
+  width: 1400px;
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.3s ease-out;
+
+  /* Mejoras para pantallas medianas */
+  @media (max-width: 1200px) {
+    width: 95%;
+    height: 700px;
+    max-height: 90vh;
+  }
+
+  /* MEJORAS ESPECÍFICAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    margin: 0;
+    flex-direction: column;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+   @media (max-width: 768px) {
+    z-index: 2147483647 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+
+    // Asegurar que el contenido del modal ocupe toda la pantalla
+    .modal-body {
+      height: 100vh !important;
+      max-height: 100vh !important;
+      min-height: 100vh !important;
+    }
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  background: rgba(var(--color-primary), 0.9);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: 300;
+
+  /* Mejoras para móviles */
+  @media (max-width: 768px) {
+    // top: 80px !important;
+    right: 300px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &:hover {
+    background: rgb(var(--color-primary));
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.modal-body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  // z-index: 9999 !important;
+
+  /* MEJORAS PARA MÓVILES - Cambio a columna */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.modal-image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    min-height: 40vh;
+    max-height: 50vh;
+    flex: none;
+    width: 100%;
+  }
+
+  .modal-image {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: zoom-in;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+    /* Estados del zoom - MEJORADO PARA MÓVILES */
+    &.zoomed {
+      cursor: grab; // Change to grab when zoomed
+      transform: scale(1.8);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+      &.panning {
+        cursor: grabbing; // While actively panning
+      }
+
+      @media (max-width: 768px) {
+        transform: scale(2.5); /* Más zoom en móviles */
+        width: 100%;
+        height: auto;
+        max-height: 90vh;
+        object-fit: contain;
+      }
+    }
+
+    /* MEJORAS PARA MÓVILES - Sin hover en móviles */
+    @media (hover: hover) {
+      &:not(.zoomed):hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modal-image {
+      width: 95%;
+      height: 95%;
+      border-radius: 8px;
+    }
+  }
+}
+
+/* Controles de navegación del modal - MEJORADOS PARA MÓVILES */
+.modal-nav {
+  position: absolute;
+  top: 80%;
+  transform: translateY(-50%);
+  background: rgba(var(--color-primary));
+  color: white;
+  border: none;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999 !important;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: 300;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+
+    /* Posicionamiento para móviles */
+    &.modal-prev {
+      left: 10px;
+      margin-right: 50%;
+    }
+
+    &.modal-next {
+      right: 10px;
+      margin-left: 50%;
+    }
+
+    /* Ocultar en modo zoom en móviles */
+    .modal-image.zoomed ~ & {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &:hover {
+    background: rgb(var(--color-primary));
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  &.modal-prev {
+    left: 30px;
+    padding-right: 5px;
+  }
+
+  &.modal-next {
+    right: 30px;
+    padding-left: 5px;
+  }
+}
+
+.modal-info {
+  flex: 0 0 450px;
+  padding: 50px 40px;
+  overflow-y: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    flex: none;
+    max-height: none;
+    padding: 25px 20px;
+    overflow-y: visible;
+
+  }
+
+  @media (max-width: 1200px) {
+    flex: 0 0 400px;
+    padding: 40px 30px;
+  }
+}
+
+.modal-title {
+  color: rgb(var(--color-primary-dark));
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.3;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+}
+
+.modal-technique {
+  color: rgb(var(--color-text-light));
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 25px;
+  font-weight: 300;
+  border-bottom: 2px solid rgba(var(--color-accent), 0.3);
+  padding-bottom: 15px;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+.modal-description {
+  color: rgb(var(--color-text));
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-weight: 300;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+}
+
+.artwork-details {
+  border-top: 2px solid rgba(var(--color-accent), 0.3);
+  padding-top: 25px;
+  margin-bottom: 35px;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    padding-top: 20px;
+    margin-bottom: 25px;
+  }
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(var(--color-accent), 0.1);
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 5px 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.detail-label {
+  color: rgb(var(--color-text-light));
+  font-weight: 500;
+  font-size: 1rem;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+}
+
+.detail-value {
+  color: rgb(var(--color-text));
+  font-weight: 400;
+  text-align: right;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  margin-top: auto;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    gap: 12px;
+  }
+}
+
+.btn-buy, .btn-contact {
+  padding: 18px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    padding: 16px 20px;
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.btn-buy {
+  background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-primary-dark)) 100%);
+  color: white;
+  box-shadow: 0 5px 15px rgba(var(--color-primary), 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, rgb(var(--color-primary-dark)) 0%, rgb(var(--color-primary)) 100%);
+  }
+}
+
+.btn-contact {
+  background: transparent;
+  color: rgb(var(--color-primary));
+  border: 2px solid rgb(var(--color-primary));
+  box-shadow: 0 3px 10px rgba(var(--color-primary), 0.1);
+
+  &:hover {
+    background: rgb(var(--color-primary));
+    color: white;
+  }
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+.btn-text {
+  /* MEJORAS PARA MÓVILES - Asegurar que el texto sea legible */
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+}
+
+/* Indicador de zoom MEJORADO PARA MÓVILES */
+.zoom-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  animation: fadeInOut 3s ease-in-out;
+  opacity: 0;
+  text-align: center;
+  z-index: 10;
+
+  /* MEJORAS PARA MÓVILES */
+  @media (max-width: 768px) {
+    bottom: 10px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    width: 90%;
+    max-width: 300px;
+
+    &.mobile {
+      padding: 8px 12px;
+    }
+  }
+}
+
+.zoom-hint {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 2px;
+  opacity: 0.8;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Soporte para gestos táctiles en móviles */
+@media (max-width: 768px) {
+  .modal-image-container {
+    touch-action: pan-x pan-y;
+  }
+
+  .modal-image.zoomed {
+    touch-action: pan-x pan-y;
+  }
+}
+
+/* Animaciones mejoradas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(15px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Asegurar que la imagen del carrusel sea clickeable */
+.artwork-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+// Estilos para el sello de VENDIDO
+.sold-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.sold-badge {
+  background: linear-gradient(45deg, #e53e3e, #c53030);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: pulse-sold 2s infinite;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    animation: rotate-sold 10s linear infinite;
+  }
+}
+
+@keyframes pulse-sold {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes rotate-sold {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.sold-image {
+  filter: grayscale(20%);
+  opacity: 0.9;
+}
+
+.sold-status {
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+.sold-container {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fef2f2, #fff5f5);
+  border-radius: 12px;
+  border: 2px dashed #feb2b2;
+}
+
+.sold-message {
+  .sold-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .sold-title {
+    color: #c53030;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .sold-description {
+    color: #718096;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Estilos para los botones y detalles
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  .btn-buy {
+    background: linear-gradient(45deg, #48bb78, #38a169);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+    }
+  }
+
+  .btn-contact {
+    background: transparent;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #cbd5e0;
+      background: #f7fafc;
+    }
+  }
+}
+
+.price {
+  color: #48bb78;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .sold-badge {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    margin: 12px;
+
+  }
+  .sold-container {
+    padding: 1.5rem;
+  }
+
+  .sold-message {
+    .sold-icon {
+      font-size: 2.5rem;
+    }
+
+    .sold-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  .modal-actions {
+    flex-direction: column;
+
+    .btn-buy, .btn-contact {
+      width: 100%;
+    }
+  }
+}
+
+// Estilos para los detalles de la obra
+.artwork-details {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.detail-value {
+  color: #2d3748;
+}
+
+// Efectos de transición
+.modal-content {
+  transition: all 0.3s ease;
+}
+
+.btn-icon {
+  margin-right: 0.5rem;
+}
+
+.btn-text {
+  vertical-align: middle;
+}
+
+
+
+
+/* MEJORAS ESPECÍFICAS PARA MÓVILES - MODAL COMPLETAMENTE SCROLLABLE */
+@media (max-width: 768px) {
+  .modal-overlay {
+    z-index: 2147483647 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(0, 0, 0, 0.98) !important;
+    overflow-y: auto !important; /* Permitir scroll vertical */
+    -webkit-overflow-scrolling: touch !important; /* Scroll suave en iOS */
+  }
+
+  .modal-content {
+    z-index: 2147483647 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    width: 100vw !important;
+    min-height: 100vh !important; /* Altura mínima completa */
+    height: auto !important; /* Altura automática según contenido */
+    max-width: 100vw !important;
+    max-height: none !important; /* Eliminar límite de altura */
+    box-shadow: none !important;
+    overflow: visible !important; /* Permitir que el contenido fluya */
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .modal-body {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow-y: visible !important; /* Contenido visible sin recortes */
+    flex-direction: column !important;
+    display: flex !important;
+    flex: 1 !important;
+  }
+
+  .modal-image-container {
+    flex: none !important; /* No crecer más de lo necesario */
+    min-height: 40vh !important;
+    max-height: 50vh !important;
+    height: auto !important;
+  }
+
+  .modal-info {
+    flex: 1 !important; /* Ocupar el espacio restante */
+    overflow-y: visible !important; /* Contenido visible */
+    max-height: none !important;
+    padding: 20px 15px !important;
+  }
+
+  /* Asegurar que el botón de cerrar sea siempre accesible */
+  .modal-close {
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important;
+    z-index: 2147483647 !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Ajustar navegación del modal */
+  .modal-nav {
+    z-index: 2147483646 !important;
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+
+    &.modal-prev {
+      left: 10px !important;
+      right: auto !important;
+    }
+
+    &.modal-next {
+      right: 10px !important;
+      left: auto !important;
+    }
+  }
+}
+
+/* Estilos adicionales para mejorar la experiencia táctil */
+@media (max-width: 768px) {
+  .modal-image.zoomed {
+    max-height: 80vh !important; /* Limitar altura en zoom */
+    object-fit: contain !important;
+  }
+
+  /* Mejorar el scroll en dispositivos móviles */
+  .modal-overlay::-webkit-scrollbar {
+    display: none; /* Ocultar scrollbar pero mantener funcionalidad */
+  }
+
+  .modal-overlay {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

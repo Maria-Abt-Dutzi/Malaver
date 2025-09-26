@@ -1,0 +1,75 @@
+header {
+  @media (max-width: 768px) {
+    z-index: 50 !important;
+    background-color: #fff !important;
+
+    // Estilos específicos para el selector de idioma en móvil
+    .mobile-language-switcher {
+      .language-switcher {
+        width: 100%;
+
+        button {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .absolute {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0;
+          border-radius: 12px 12px 0 0;
+          transform: translateY(0);
+          width: 100% !important;
+          max-width: 100% !important;
+
+          // Animación de slide-up
+          transition: transform 0.3s ease, opacity 0.3s ease;
+
+          &[class*="invisible"] {
+            transform: translateY(100%);
+          }
+
+          &[class*="visible"] {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    // Mejoras para los enlaces en móvil
+    a {
+      // Asegurar que los enlaces sean tappables
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+
+      // Prevenir el zoom en iOS al tocar
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+}
+
+// Estilos para mejorar la experiencia táctil
+@media (max-width: 768px) {
+  .md\\:hidden {
+    a, button {
+      // Tamaño mínimo recomendado para elementos táctiles
+      min-height: 44px;
+      min-width: 44px;
+
+      // Mejorar la legibilidad del texto
+      font-size: 16px; // Prevenir zoom en iOS
+
+      // Feedback visual al tocar
+      transition: all 0.2s ease;
+
+      &:active {
+        transform: scale(0.98);
+        background-color: rgba(156, 163, 175, 0.1);
+      }
+    }
+  }
+}

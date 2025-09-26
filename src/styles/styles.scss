@@ -1,0 +1,206 @@
+@import './tailwind.scss';
+
+// Estilos personalizados adicionales
+.drag-container, .spin-container, .ground {
+  position: relative;
+  display: flex;
+  margin: auto;
+  margin-top: 5%;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg);
+}
+
+.spin-container img {
+  transform-style: preserve-3d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  font-size: 50px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(156, 163, 175, 0.2);
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+}
+
+.ground {
+  width: 900px;
+  height: 900px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(90deg);
+  background: radial-gradient(center center, farthest-side,
+              rgba(156, 163, 175, 0.15) 0%,
+              transparent 70%);
+}
+
+.gallery-category {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+
+  &.active {
+    display: block;
+  }
+}
+
+// Animación suave para transiciones
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mejoras adicionales para elegancia
+.card {
+  background: rgb(var(--color-white));
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(156, 163, 175, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+
+// Agregar al final del archivo styles.scss
+.hero-section {
+  // Estilos específicos para el hero si son necesarios
+}
+
+// Mejora la responsividad para móviles
+@media (max-width: 768px) {
+  #inicio {
+    .container {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    .grid > div:first-child {
+      order: 2;
+    }
+
+    .grid > div:last-child {
+      order: 1;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// Efectos de hover mejorados para los botones
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Estilos para el marco de la imagen
+.image-frame {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, rgb(var(--color-primary-light)), rgb(var(--color-accent)));
+    border-radius: 24px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+
+// Agregar al final de styles.scss
+
+// Estilos específicos para la galería 3D
+#drag-container {
+  touch-action: none;
+}
+
+// Mejoras de responsividad para la galería
+@media (max-width: 768px) {
+  #drag-container, #spin-container {
+    margin-top: 15%;
+    transform: rotateX(-5deg) scale(0.8);
+  }
+
+  #ground {
+    width: 600px;
+    height: 600px;
+  }
+
+  #drag-container p {
+    font-size: 1rem;
+  }
+}
+
+// Efectos de hover mejorados para las imágenes de la galería
+.artwork-image {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    z-index: 10;
+    filter: brightness(1.1);
+  }
+}
+
+// Animaciones de carga para la galería
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gallery-enter {
+  animation: galleryFadeIn 0.6s ease-out;
+}
+
+
+// Estilos para los botones de filtro
+.btn-primary {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+}
+
+.btn-outline {
+  @apply border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white;
+}
+
+.bg-purple-600_text-white {
+  @apply bg-purple-600 text-white;
+}
+
+.rounded-l-none {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

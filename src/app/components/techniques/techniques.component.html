@@ -1,0 +1,84 @@
+<!-- techniques.component.html -->
+<section id="tecnica" class="py-20 bg-background">
+  <div class="container">
+    <div class="text-center mb-16 animate-fade-in-up">
+      <span class="inline-block px-4 py-2 bg-accent/30 text-primary-dark rounded-full text-sm font-medium mb-4" *transloco="'techniques.title'">
+        {{ 'techniques.title' | transloco }}
+      </span>
+      <h2 class="text-4xl md:text-5xl font-light text-primary-dark mb-4" *transloco="'techniques.subtitle'"> {{ 'techniques.subtitle' | transloco }}</h2>
+      <p class="text-lg text-text-light max-w-2xl mx-auto" *transloco="'techniques.description'"> {{ 'techniques.description' | transloco }}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Tarjeta 1 -->
+      <div class="card p-8 text-center group hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+          <span class="text-2xl text-primary-dark">🎨</span>
+        </div>
+        <h3 class="text-xl font-semibold text-primary-dark mb-4" *transloco="'techniques.card1.title'"> {{ 'techniques.card1.title' | transloco }}</h3>
+        <p class="text-text-light leading-relaxed" *transloco="'techniques.card1.description'"> {{ 'techniques.card1.description' | transloco }}</p>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="card p-8 text-center group hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.1s;">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+          <span class="text-2xl text-primary-dark">🖌️</span>
+        </div>
+        <h3 class="text-xl font-semibold text-primary-dark mb-4" *transloco="'techniques.card2.title'">{{ 'techniques.card2.title' | transloco }}</h3>
+        <p class="text-text-light leading-relaxed" *transloco="'techniques.card2.description'">{{ 'techniques.card2.description' | transloco }}</p>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="card p-8 text-center group hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+          <span class="text-2xl text-primary-dark">✨</span>
+        </div>
+        <h3 class="text-xl font-semibold text-primary-dark mb-4" *transloco="'techniques.card3.title'">{{ 'techniques.card3.title' | transloco }}</h3>
+        <p class="text-text-light leading-relaxed" *transloco="'techniques.card3.description'">{{ 'techniques.card3.description' | transloco }}</p>
+      </div>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="mt-16 bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-accent/30 animate-fade-in-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-light text-primary-dark mb-4" *transloco="'techniques.quality.title'">
+            {{ 'techniques.quality.title' | transloco }}
+          </h3>
+          <p class="text-text-light mb-4" *transloco="'techniques.quality.description'">
+            {{ 'techniques.quality.description' | transloco }}
+          </p>
+          <ul class="space-y-2 text-text-light">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span *transloco="'techniques.quality.item1'">
+                {{ 'techniques.quality.item1' | transloco }}
+              </span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span *transloco="'techniques.quality.item2'">
+                {{ 'techniques.quality.item2' | transloco }}
+              </span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span *transloco="'techniques.quality.item3'">
+                {{ 'techniques.quality.item3' | transloco }}
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-primary/5 to-accent/10 rounded-lg p-6 text-center">
+          <div class="text-3xl text-primary-dark mb-2">15+</div>
+          <div class="text-text-light font-medium" *transloco="'techniques.quality.experience.title'">
+            {{ 'techniques.quality.experience.title' | transloco }}
+          </div>
+          <div class="text-sm text-text-light mt-2" *transloco="'techniques.quality.experience.description'">
+            {{ 'techniques.quality.experience.description' | transloco }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

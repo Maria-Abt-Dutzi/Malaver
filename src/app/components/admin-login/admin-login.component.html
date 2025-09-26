@@ -1,0 +1,70 @@
+
+<app-header></app-header>
+<!-- components/admin-login/admin-login.component.html -->
+<!-- admin-login.component.html -->
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+  <div class="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-md transform transition-all duration-300 hover:shadow-3xl">
+    <!-- Header con gradiente -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-center">
+      <i class="fas fa-lock text-white text-4xl mb-3"></i>
+      <h2 class="text-2xl font-bold text-white" *transloco="'adminLogin.title'">Admin Login</h2>
+    </div>
+
+    <!-- Formulario -->
+    <form (ngSubmit)="onSubmit()" class="p-8 space-y-6">
+      <!-- Campo Usuario -->
+      <div class="relative">
+        <div class="flex items-center border-b-2 border-blue-500 py-2">
+          <i class="fas fa-user text-blue-500 mr-3"></i>
+          <input
+            type="text"
+            [(ngModel)]="username"
+            name="username"
+            required
+            placeholder=" "
+            class="w-full py-2 px-1 bg-transparent outline-none text-gray-700 focus:placeholder-blue-300 transition-all duration-200"
+          >
+        </div>
+        <label class="absolute left-9 top-2 text-gray-500 pointer-events-none transition-all duration-200 bg-white px-1">
+          <span *transloco="'adminLogin.username'"></span>
+        </label>
+      </div>
+
+      <!-- Campo Contraseña -->
+      <div class="relative">
+        <div class="flex items-center border-b-2 border-blue-500 py-2">
+          <i class="fas fa-key text-blue-500 mr-3"></i>
+          <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            placeholder=" "
+            class="w-full py-2 px-1 bg-transparent outline-none text-gray-700 focus:placeholder-blue-300 transition-all duration-200"
+          >
+        </div>
+        <label class="absolute left-9 top-2 text-gray-500 pointer-events-none transition-all duration-200 bg-white px-1">
+          <span *transloco="'adminLogin.password'"></span>
+        </label>
+      </div>
+
+      <!-- Botón de Login -->
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 rounded-lg font-semibold shadow-lg hover:from-blue-700 hover:to-indigo-800 transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
+      >
+        <span *transloco="'adminLogin.login'">Login</span>
+      </button>
+
+      <!-- Mensaje de error -->
+      <p *ngIf="errorMessage" class="text-red-500 text-center bg-red-50 py-2 rounded-lg border border-red-200 animate-pulse">
+        {{ errorMessage }}
+      </p>
+    </form>
+
+    <!-- Footer -->
+    <div class="bg-gray-50 p-4 text-center text-gray-600 text-sm">
+      <p>Secure Admin Access</p>
+    </div>
+  </div>
+</div>

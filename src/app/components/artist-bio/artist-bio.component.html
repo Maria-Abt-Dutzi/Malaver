@@ -1,0 +1,172 @@
+<app-header></app-header>
+
+<!-- components/artist-bio/artist-bio.component.html -->
+<section id="sobre-mi" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-artistic-pattern py-16">
+  <!-- Fondos decorativos mejorados -->
+  <div class="absolute inset-0 bg-gradient-to-br from-background/95 via-white/90 to-accent/15"></div>
+  <div class="absolute top-5 left-5 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+  <div class="absolute bottom-5 right-5 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+
+  <div class="container relative z-10">
+    <!-- Encabezado mejorado -->
+    <div class="text-center mb-16 animate-fade-in-up">
+      <span class="inline-block px-6 py-3 bg-gradient-to-r from-accent/40 to-primary/20 text-primary-dark rounded-full text-lg font-medium mb-4 shadow-lg">
+        {{ 'bio.title' | transloco }}
+      </span>
+      <h1 class="text-4xl md:text-5xl font-light text-primary-dark mb-4 leading-tight">
+        {{ 'bio.location' | transloco }}
+      </h1>
+      <p class="text-xl text-text-light font-serif italic">{{ 'bio.date' | transloco }}</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <!-- Columna de imagen mejorada -->
+      <div class="lg:col-span-1 relative animate-fade-in-up">
+        <div class="sticky top-24">
+          <div class="relative group">
+            <!-- Marco de la imagen mejorado -->
+            <div class="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 shadow-2xl border-2 border-accent/30 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl">
+              <div class="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl blur-lg opacity-50"></div>
+              <div class="relative aspect-[3/4] bg-gradient-to-br from-primary/5 to-accent/10 rounded-2xl overflow-hidden">
+                <!-- Imagen del artista -->
+                <img src="https://res.cloudinary.com/dvdscvipo/image/upload/v1758581745/Scannen0002_fa4n0x.jpg"
+                  alt="María Abt-Dutzi - Artista pictórica"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <!-- Overlay mejorado -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+
+              <!-- Firma en la imagen -->
+              <!-- <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                <p class="text-primary-dark font-serif italic text-lg">{{ 'bio.signature' | transloco }}</p>
+              </div> -->
+            </div>
+
+            <!-- Elementos decorativos mejorados -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl z-0"></div>
+            <div class="absolute -bottom-4 -left-4 w-28 h-28 bg-accent/20 rounded-full blur-xl z-0"></div>
+          </div>
+
+          <!-- Información destacada al lado de la imagen -->
+          <div class="mt-8 space-y-4">
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-accent/20">
+              <h3 class="text-xl font-light text-primary-dark mb-3">🎨 {{ 'bio.techniqueTitle' | transloco }}</h3>
+              <p class="text-text text-sm">{{ 'bio.techniqueDescription' | transloco }}</p>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-accent/20">
+              <h3 class="text-xl font-light text-primary-dark mb-3">📅 {{ 'bio.experienceTitle' | transloco }}</h3>
+              <p class="text-text text-sm">{{ 'bio.experienceYears' | transloco }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna de contenido principal mejorada -->
+      <div class="lg:col-span-2 animate-fade-in-up" style="animation-delay: 0.3s;">
+        <!-- Sección de infancia y formación -->
+        <div class="mb-12">
+          <div class="flex items-center mb-6">
+            <!-- <div class="w-12 h-12 bg-accent/30 rounded-full flex items-center justify-center mr-4">
+              <span class="text-2xl">👧</span>
+            </div> -->
+            <h2 class="text-3xl font-light text-primary-dark">{{ 'bio.childhoodTitle' | transloco }}</h2>
+          </div>
+
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-accent/20">
+            <div class="space-y-6 text-text leading-relaxed">
+              <p class="text-lg">{{ 'bio.paragraphs.p1' | transloco }}</p>
+              <p>{{ 'bio.paragraphs.p2' | transloco }}</p>
+              <p>{{ 'bio.paragraphs.p3' | transloco }}</p>
+
+              <!-- Destacado de técnica -->
+              <div class="bg-gradient-to-r from-accent/20 to-primary/10 rounded-xl p-6 my-6 border-l-4 border-primary">
+                <p class="font-medium text-primary-dark">{{ 'bio.paragraphs.p4' | transloco }}</p>
+                <p class="mt-2 text-sm text-text-light">{{ 'bio.paragraphs.p5' | transloco }}</p>
+              </div>
+
+              <p>{{ 'bio.paragraphs.p6' | transloco }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de carrera y exposiciones en Colombia -->
+        <div class="mb-12">
+          <div class="flex items-center mb-6">
+            <!-- <div class="w-12 h-12 bg-accent/30 rounded-full flex items-center justify-center mr-4">
+              <span class="text-2xl">🇨🇴</span>
+            </div> -->
+            <h2 class="text-3xl font-light text-primary-dark">{{ 'bio.careerTitle' | transloco }}</h2>
+          </div>
+
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-accent/20">
+            <p class="text-lg mb-6">{{ 'bio.paragraphs.p7' | transloco }}</p>
+            <p class="mb-8">{{ 'bio.paragraphs.p8' | transloco }}</p>
+
+            <!-- Tarjetas de exposiciones en Colombia -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-light text-primary-dark mb-6 text-center">{{ 'bio.exhibitionsColombia.title' | transloco }}</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div *ngFor="let exhibition of colombiaExhibitions; let i = index"
+                     class="bg-gradient-to-br from-white to-accent/5 rounded-xl p-5 shadow-md border border-accent/20 hover:shadow-lg transition-shadow duration-300">
+                  <div class="flex items-start mb-3">
+                    <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                      <span class="text-primary-dark font-bold">{{ i + 1 }}</span>
+                    </div>
+                    <p class="font-medium text-primary-dark">{{ exhibition }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de vida en Alemania y exposiciones en Europa -->
+        <div class="mb-12">
+          <div class="flex items-center mb-6">
+            <!-- <div class="w-12 h-12 bg-accent/30 rounded-full flex items-center justify-center mr-4">
+              <span class="text-2xl">🇩🇪</span>
+            </div> -->
+            <h2 class="text-3xl font-light text-primary-dark">{{ 'bio.germanyTitle' | transloco }}</h2>
+          </div>
+
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-accent/20">
+            <div class="space-y-6 text-text leading-relaxed">
+              <p>{{ 'bio.paragraphs.p9' | transloco }}</p>
+              <p>{{ 'bio.paragraphs.p10' | transloco }}</p>
+              <p class="mb-8">{{ 'bio.paragraphs.p11' | transloco }}</p>
+
+              <!-- Tarjetas de exposiciones en Europa -->
+              <div>
+                <h3 class="text-2xl font-light text-primary-dark mb-6 text-center">{{ 'bio.exhibitionsEurope.title' | transloco }}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div *ngFor="let exhibition of europeExhibitions; let i = index"
+                       class="bg-gradient-to-br from-white to-primary/5 rounded-xl p-5 shadow-md border border-accent/20 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex items-start mb-3">
+                      <div class="w-8 h-8 bg-accent/30 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <span class="text-primary-dark font-bold">{{ i + 1 }}</span>
+                      </div>
+                      <p class="font-medium text-primary-dark">{{ exhibition }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de legado artístico -->
+        <div class="text-center mt-16 pt-8 border-t border-accent/30">
+          <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-light text-primary-dark mb-4">{{ 'bio.legacyTitle' | transloco }}</h3>
+            <p class="text-lg text-text leading-relaxed max-w-3xl mx-auto">{{ 'bio.legacyDescription' | transloco }}</p>
+            <div class="mt-6">
+              <p class="text-2xl font-serif italic text-primary-dark">{{ 'bio.signature' | transloco }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

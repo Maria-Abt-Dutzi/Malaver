@@ -1,0 +1,143 @@
+<!-- components/artwork-carousel/artwork-carousel.component.html -->
+<div class="carousel-container">
+  <button class="nav-arrow left" (click)="prev()">‹</button>
+
+  <div class="carousel-track">
+    <div
+      *ngFor="let artwork of artworks; let i = index"
+      class="card"
+      [class.center]="i === currentIndex"
+      [class.left-1]="i === left1Index"
+      [class.left-2]="i === left2Index"
+      [class.right-1]="i === right1Index"
+      [class.right-2]="i === right2Index"
+      [class.hidden]="isHidden(i)"
+      (click)="goToSlide(i)"
+    >
+      <img
+        [src]="artwork.imagen"
+        [alt]="artwork.titulo"
+        (click)="$event.stopPropagation(); openModal()"
+        class="artwork-image"
+      >
+    </div>
+  </div>
+
+  <button class="nav-arrow right" (click)="next()">›</button>
+</div>
+
+<div class="artwork-info">
+  <h2 class="artwork-title">{{ currentArtwork?.titulo }}</h2>
+  <p class="artwork-technique">{{ currentArtwork?.tecnica }}</p>
+  <p *ngIf="currentArtwork?.descripcion" class="artwork-description">{{ currentArtwork?.descripcion }}</p>
+</div>
+
+<div class="dots">
+  <div
+    *ngFor="let artwork of artworks; let i = index"
+    class="dot"
+    [class.active]="i === currentIndex"
+    (click)="goToSlide(i)"
+  ></div>
+</div>
+
+<!-- Modal para vista ampliada - VERSIÓN MEJORADA PARA RESPONSIVIDAD -->
+<div *ngIf="isModalOpen" class="modal-overlay mobile-modal" (click)="closeModal()">
+  <button class="modal-close" (click)="closeModal()">×</button>
+  <div class="modal-content" (click)="$event.stopPropagation()">
+
+    <button class="modal-close" (click)="closeModal()">×</button>
+    <div class="modal-body">
+      <div class="modal-image-container">
+        <!-- Sello de VENDIDO superpuesto en la imagen -->
+        <div *ngIf="currentArtwork?.vendido" class="sold-overlay">
+          <div class="sold-badge">
+            <span class="sold-text">{{ 'artworkCarousel.sold' | transloco }}</span>
+          </div>
+        </div>
+
+        <img
+          [src]="currentArtwork?.imagen"
+          [alt]="currentArtwork?.titulo"
+          class="modal-image"
+          [class.zoomed]="isZoomed"
+          [class.panning]="isPanning"
+          [class.sold-image]="currentArtwork?.vendido"
+          [style.transform]="getImageTransform()"
+          [style.transition]="isPanning ? 'none' : 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'"
+          (click)="toggleZoom($event)"
+          (mousedown)="onPanStart($event)"
+          (mousemove)="onPanMove($event)"
+          (mouseup)="onPanEnd($event)"
+          (mouseleave)="onPanEnd($event)"
+          (touchstart)="onPanStart($event)"
+          (touchmove)="onPanMove($event)"
+          (touchend)="onPanEnd($event)"
+        >
+
+        <!-- Indicador de zoom mejorado para móviles -->
+        <div *ngIf="showZoomIndicator" class="zoom-indicator" [class.mobile]="isMobile">
+          {{ (isZoomed ? 'artworkCarousel.zoomOut' : 'artworkCarousel.zoomIn') | transloco }}
+          <span *ngIf="isMobile" class="zoom-hint">{{ 'artworkCarousel.panHint' | transloco }}</span>
+        </div>
+
+        <!-- Navegación dentro del modal - mejorada para móviles -->
+        <button class="modal-nav modal-prev" (click)="prevInModal()">‹</button>
+        <button class="modal-nav modal-next" (click)="nextInModal()">›</button>
+      </div>
+
+      <div class="modal-info">
+        <h2 class="modal-title">{{ currentArtwork?.titulo }}</h2>
+        <p class="modal-technique">{{ currentArtwork?.tecnica }}</p>
+        <p *ngIf="currentArtwork?.descripcion" class="modal-description">{{ currentArtwork?.descripcion }}</p>
+
+        <!-- Información adicional que podría tener la obra -->
+        <div *ngIf="currentArtwork" class="artwork-details">
+          <div class="detail-item">
+            <span class="detail-label">{{ 'artworkCarousel.dimensions' | transloco }}</span>
+            <span class="detail-value">{{ currentArtwork.medidas }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">{{ 'artworkCarousel.materials' | transloco }}</span>
+            <span class="detail-value">{{ currentArtwork.tecnica }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">{{ 'artworkCarousel.year' | transloco }}</span>
+            <span class="detail-value">{{ currentArtwork.anio }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">{{ 'artworkCarousel.status' | transloco }}</span>
+            <span class="detail-value" [class.sold-status]="currentArtwork.vendido">
+              {{ (currentArtwork.vendido ? 'artworkCarousel.statusSold' : 'artworkCarousel.statusAvailable') | transloco }}
+            </span>
+          </div>
+          <div *ngIf="!currentArtwork.vendido" class="detail-item">
+            <span class="detail-label">{{ 'artworkCarousel.price' | transloco }}</span>
+            <span class="detail-value price">{{ currentArtwork.precio | currency:currentArtwork.moneda:'symbol':'1.0-0' }}</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <!-- Mostrar sello de VENDIDO si la obra está vendida -->
+          <ng-container *ngIf="currentArtwork?.vendido; else availableTemplate">
+            <div class="sold-container">
+              <div class="sold-message">
+                <div class="sold-icon">🎨</div>
+                <h3 class="sold-title">{{ 'artworkCarousel.artworkSold' | transloco }}</h3>
+                <p class="sold-description">{{ 'artworkCarousel.artworkSoldDescription' | transloco }}</p>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Mostrar botones de compra si la obra está disponible -->
+          <ng-template #availableTemplate>
+            <button class="btn-buy">
+              <span class="btn-icon">🛒</span>
+              <span class="btn-text">{{ 'artworkCarousel.buyArtwork' | transloco }}</span>
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,252 @@
+{
+  "title": "Velvet Painting from Colombia: {{ language }}",
+  "languages": {
+    "es": "Spanish",
+    "en": "English",
+    "de": "German"
+  },
+  "header": {
+    "agregar": "Add",
+    "gallery": "Gallery",
+    "artist": "Artist",
+    "technique": "Technique",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "hero": {
+    "title": "María Abt-Dutzi (Malaver)",
+    "specialty": "Specialist in <span class=\"font-semibold text-primary-dark\">velvet painting</span> using traditional Colombian techniques",
+    "workDescription": "My figurative works are created with a unique <span class=\"italic\">pointillism on velvet</span> technique, where the colors do not mix, creating a distinct and contemplative visual effect.",
+    "exploreGallery": "Explore Gallery",
+    "knowTheArtist": "Meet the Artist",
+    "experience": "Decades of Experience",
+    "worksCreated": "Works Created",
+    "exhibitions": "International Exhibitions"
+  },
+  "techniques": {
+    "title": "Artistic Specialties",
+    "subtitle": "Techniques and Materials",
+    "description": "My father and mentor Guillermo Malaver taught me oil and acrylic painting at an early age, but above all the traditional Colombian velvet painting technique.",
+    "card1": {
+      "title": "Velvet Painting",
+      "description": "A traditional Colombian technique, little known in Europe, created using a pointillism technique on velvet, which prevents the colors from mixing."
+    },
+    "card2": {
+      "title": "Oil and Acrylic",
+      "description": "Classical techniques taught to me by my father from an early age."
+    },
+    "card3": {
+      "title": "Figurative Works",
+      "description": "My motifs are mainly figurative, transmitting light, color, and texture in a unique way."
+    },
+    "quality": {
+      "title": "Artistic Commitment",
+      "description": "All my works are signed 'Malaver' as a tribute to my father and mentor.",
+      "item1": "Velvet Painting",
+      "item2": "Figurative Art",
+      "item3": "Academic Training",
+      "experience": {
+        "title": "A Life Dedicated to Art",
+        "description": "Over 40 years of experience reflected in every artwork"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Collection of Works",
+    "subtitle": "Art Gallery",
+    "description": "Exhibitions held in Colombian museums and European galleries.",
+    "results": "works found",
+    "noResults": {
+      "title": "No works found matching your search.",
+      "button": "🔄 Clear filters"
+    },
+    "loading": "Loading works...",
+    "categories": {
+      "todas": "All",
+      "paisajismo": "Landscapes",
+      "bodegones": "Still Life",
+      "retratos": "Portraits",
+      "animalismo": "Animalism",
+      "otros": "Others"
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Direct Contact",
+      "subtitle": "Malaver Studio",
+      "email": {
+        "title": "Email"
+      },
+      "phone": {
+        "title": "Phone"
+      },
+      "studio": {
+        "title": "Studio",
+        "address": "Bad Wörishofen, Germany"
+      }
+    },
+    "social": {
+      "title": "Follow Me",
+      "subtitle": "Let's Connect",
+      "instagram": {
+        "title": "Instagram"
+      },
+      "facebook": {
+        "title": "Facebook"
+      },
+      "twitter": {
+        "title": "Twitter"
+      }
+    },
+    "events": {
+      "title": "Exhibitions",
+      "subtitle": "Museums and Galleries",
+      "event1": {
+        "title": "Museo de Arte Moderno, Bogotá",
+        "date": "",
+        "description": "Solo exhibition in Colombia"
+      },
+      "event2": {
+        "title": "Museo La Tertulia, Cali",
+        "date": "",
+        "description": "Group exhibition"
+      },
+      "event3": {
+        "title": "Galerie Luer, Bad Wörishofen",
+        "date": "",
+        "description": "Exhibition in Germany"
+      },
+      "event4": {
+        "title": "Galerie Art Gladys, Switzerland",
+        "date": "",
+        "description": "International exhibition"
+      }
+    },
+    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Abt-Dutzi (Malaver)</span>. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "adminLogin": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "login": "Sign In",
+    "error": "Invalid credentials"
+  },
+  "adminDashboard": {
+    "title": "Admin Panel",
+    "logout": "Logout",
+    "addArtwork": "Add New Artwork",
+    "editArtwork": "Edit Artwork",
+    "existingArtworks": "Existing Artworks",
+    "noArtworks": "No artworks registered. Add your first one using the form above.",
+    "confirmDelete": "Are you sure you want to delete this artwork?",
+    "form": {
+      "title": "Title *",
+      "measures": "Measurements *",
+      "technique": "Technique *",
+      "style": "Style",
+      "genre": "Genre *",
+      "category": "Category *",
+      "status": "Status *",
+      "statusOptions": {
+        "new": "New",
+        "used": "Used",
+        "restored": "Restored"
+      },
+      "price": "Price *",
+      "currency": "Currency *",
+      "year": "Year",
+      "sold": "Sold *",
+      "soldOptions": {
+        "no": "Not Sold",
+        "yes": "Sold"
+      },
+      "image": "Image URL *",
+      "description": "Description",
+      "cancel": "Cancel",
+      "add": "Add Artwork",
+      "update": "Update Artwork"
+    },
+    "table": {
+      "image": "Image",
+      "title": "Title",
+      "technique": "Technique",
+      "price": "Price",
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "success": {
+      "add": "Artwork added successfully",
+      "update": "Artwork updated successfully",
+      "delete": "Artwork deleted successfully"
+    },
+    "errors": {
+      "load": "Error loading artworks",
+      "save": "Error saving artwork",
+      "delete": "Error deleting artwork"
+    }
+  },
+  "artworkCarousel": {
+    "sold": "SOLD",
+    "zoomOut": "Tap to zoom out",
+    "zoomIn": "Tap to zoom in",
+    "panHint": "(Swipe to navigate)",
+    "dimensions": "Dimensions:",
+    "materials": "Materials:",
+    "year": "Year:",
+    "status": "Status:",
+    "statusSold": "Sold",
+    "statusAvailable": "Available",
+    "price": "Price:",
+    "artworkSold": "Artwork Sold",
+    "artworkSoldDescription": "This unique piece has already found its new home.",
+    "buyArtwork": "Buy Artwork"
+  },
+  "bio": {
+    "title": "Velvet Painting from Colombia",
+    "date": "March 2025",
+    "location": "Life of the painter María Abt-Dutzi, Bad Wörishofen",
+      "techniqueTitle": "Specialized Technique",
+  "techniqueDescription": "Velvet painting using traditional Colombian pointillism technique",
+  "experienceTitle": "Experience",
+  "experienceYears": "Over 40 years dedicated to art",
+  "childhoodTitle": "Childhood and Training",
+  "careerTitle": "Artistic Career in Colombia",
+  "germanyTitle": "Life and Career in Germany",
+  "legacyTitle": "Artistic Legacy",
+  "legacyDescription": "My work represents the fusion of two cultures, keeping traditional Colombian techniques alive while adapting them to the European context, creating an artistic bridge between continents.",
+    "paragraphs": {
+      "p1": "On July 29, 1952, I was born in Bogotá, the capital of Colombia, as the second daughter of academic painter Guillermo Malaver and his wife Margarita.",
+      "p2": "When I was about 11 years old, my father discovered that I had inherited his talent. From that moment on, he regularly taught me oil and acrylic painting.",
+      "p3": "In my training, he placed great emphasis on teaching me primarily our traditional Colombian painting technique, namely painting on velvet.",
+      "p4": "The motifs of my figurative works are created in this painting technique solely through dots and not with brushstrokes, as the colors would otherwise mix.",
+      "p5": "This South American painting style is practically unknown in Europe and differs in its effect on the viewer from the usual paintings that are painted exclusively on white canvas.",
+      "p6": "As a gratitude to my father and mentor, I sign all my works to this day with the artistic name 'Malaver'.",
+      "p7": "I first began studying psychopedagogy, but after one semester I realized that my true passion was painting.",
+      "p8": "At the age of 26, I began working as an independent painter and during that time I held several exhibitions in my native country, including at:",
+      "p9": "In 1992, I emigrated to Germany for love. Shortly after starting my new life in Germany, my first husband passed away from a serious illness.",
+      "p10": "In 1994, I met my second husband, who encouraged me to resume my artistic activities.",
+      "p11": "In recent years, I have sold my velvet paintings mainly to private individuals and through the online gallery 'Artquid', and later also in exhibitions at the following galleries:"
+    },
+    "exhibitionsColombia": {
+      "title": "Exhibitions in Colombia",
+      "item1": "Museum of Modern Art, Bogotá",
+      "item2": "Museum of Independence, Casa del Florero, Bogotá",
+      "item3": "Museum of Colonial Art, Bogotá",
+      "item4": "Museum La Tertulia, Cali",
+      "item5": "MULI Free Museum of Public Art of Cali, Cali"
+    },
+    "exhibitionsEurope": {
+      "title": "Exhibitions in Europe",
+      "item1": "Neuburg Castle an der Kamel",
+      "item2": "Galerie 'Luer', Bad Wörishofen",
+      "item3": "Gallery in the Kurhaus, Bad Wörishofen",
+      "item4": "Gallery 'Art Gladys', Bad Ragaz Golf Club (Switzerland)",
+      "item5": "Gallery 'Kunsthalle Art-Schöch', Stein am Rhein (Switzerland)"
+    },
+    "signature": "María Abt-Dutzi (Malaver)"
+  }
+}

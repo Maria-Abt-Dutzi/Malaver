@@ -1,0 +1,156 @@
+// components/gallery/gallery.component.scss
+// Estilos para los botones de categoría
+.category-button {
+  @apply px-3 lg:px-6 py-2 lg:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap;
+
+  &.active {
+    @apply bg-primary text-white shadow-lg transform hover:scale-105 border border-primary;
+  }
+
+  &.inactive {
+    @apply bg-white/80 backdrop-blur-sm text-primary-dark border border-accent hover:bg-primary/10 hover:border-primary/30 hover:shadow-md;
+  }
+}
+
+// Estilos para el input de búsqueda mejorado
+.search-container {
+  @apply relative w-full max-w-md lg:max-w-lg;
+
+  .search-input-wrapper {
+    @apply flex bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-accent/50 hover:border-primary/30 transition-all duration-300;
+
+    &:focus-within {
+      @apply border-primary/50 shadow-xl;
+    }
+  }
+
+  .search-input {
+    @apply flex-1 px-4 lg:px-6 py-3 lg:py-4 bg-transparent border-none focus:outline-none focus:ring-0 text-text placeholder-text-light text-sm lg:text-base;
+
+    &::placeholder {
+      @apply text-text-light opacity-70;
+    }
+  }
+
+  .search-button {
+    // @apply flex items-center justify-center px-4 lg:px-6 bg-primary text-white rounded-r-xl hover:bg-primary-dark transition-all duration-300 group;
+
+    &:hover {
+      transform: none; // Override hover scale for better UX
+    }
+  }
+}
+
+// Contador de resultados
+.results-counter {
+  @apply mt-3 text-center;
+
+  span {
+    @apply inline-block px-3 py-1 bg-accent/20 text-primary-dark rounded-full text-xs font-medium;
+  }
+}
+
+// Estado de carga
+.loading-indicator {
+  @apply inline-flex items-center gap-3 text-text-light;
+
+  .spinner {
+    @apply w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin;
+  }
+}
+
+// Estado sin resultados
+.no-results {
+  @apply text-center py-8 lg:py-12 animate-fade-in-up;
+
+  .no-results-content {
+    @apply max-w-md mx-auto;
+  }
+
+  .no-results-icon {
+    @apply text-6xl mb-4;
+  }
+
+  .no-results-text {
+    @apply text-lg text-text-light mb-4;
+  }
+}
+
+// Responsive improvements
+@media (max-width: 640px) {
+  .category-button {
+    @apply px-2 py-1 text-xs;
+    min-width: 80px; // Ensure consistent button sizes
+  }
+
+  .search-container {
+    .search-input {
+      @apply px-3 py-2 text-sm;
+    }
+
+    .search-button {
+      @apply px-3 py-2;
+
+      span {
+        @apply hidden; // Hide "Buscar" text on small screens
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .category-button {
+    @apply px-1 py-1 text-xs;
+    min-width: 70px;
+    font-size: 0.7rem;
+  }
+
+  // Stack buttons vertically on very small screens
+  .categories-container {
+    @apply flex flex-col gap-2 items-center;
+
+    .category-button {
+      @apply w-full max-w-[140px] justify-center;
+    }
+  }
+}
+
+// Animaciones mejoradas
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// Mejoras de accesibilidad
+button:focus-visible {
+  @apply outline-2 outline-primary outline-offset-2;
+}
+
+input:focus-visible {
+  @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+}
+
+// Smooth transitions for all interactive elements
+button, input, .category-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Mejora el contraste para mejor legibilidad
+.text-primary-dark {
+  color: rgb(var(--color-primary-dark));
+}
+
+.text-text-light {
+  color: rgb(var(--color-text-light));
+  opacity: 0.9;
+}

@@ -1,0 +1,38 @@
+<div class="language-switcher relative">
+  <button
+    type="button"
+    class="flex items-center space-x-1 p-2 rounded-lg hover:bg-accent/20 transition-colors"
+    (click)="toggleDropdown()"
+    [title]="getLanguageName(activeLang)"
+  >
+    <div class="flex items-center space-x-2">
+      <img [src]="getFlagImage(activeLang)" [alt]="activeLang" class="w-5 h-5 object-contain">
+    </div>
+    <svg class="w-3 h-3 transform transition-transform"
+         [class.rotate-180]="showDropdown"
+         fill="none"
+         stroke="currentColor"
+         viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div
+    class="absolute top-full mt-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-accent/20 overflow-hidden z-50 transition-all duration-300"
+    [class]="getDropdownClasses()"
+  >
+    <div class="flex flex-row items-center">  <!-- Cambiado a flex-row -->
+      <button
+        *ngFor="let lang of availableLangs"
+        type="button"
+        class="flex flex-col items-center px-3 py-2 hover:bg-accent/20 transition-colors"
+        [ngClass]="{ 'bg-accent/30': lang === activeLang }"
+        (click)="changeLang(lang)"
+        [title]="getLanguageName(lang)"
+      >
+        <img [src]="getFlagImage(lang)" [alt]="lang" class="w-5 h-5 object-contain mb-1">
+        <span class="text-text font-light text-xs">{{ getLanguageName(lang) }}</span>
+      </button>
+    </div>
+  </div>
+</div>

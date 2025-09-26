@@ -1,0 +1,63 @@
+/* admin-login.component.scss */
+
+// Animaciones personalizadas
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+}
+
+// Estilos específicos para el componente
+:host {
+  display: block;
+}
+
+// Estilos para los inputs con efecto de etiqueta flotante
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background: white;
+  padding: 0 4px;
+}
+
+// Efecto de elevación mejorado
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+// Efectos de animación para el icono de candado
+.fa-lock {
+  animation: float 3s ease-in-out infinite;
+}
+
+// Efecto de brillo en el botón al hacer hover
+button:hover {
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+// Estilos para dispositivos muy pequeños
+@media (max-width: 320px) {
+  .min-h-screen {
+    padding: 1rem;
+  }
+
+  .p-8 {
+    padding: 1.5rem;
+  }
+}
+
+// Mejoras de accesibilidad
+input:focus {
+  outline: none;
+}
+
+// Transición suave para todos los elementos interactivos
+button, input {
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,27 @@
+
+<div *ngIf="isLoading" class="loader-overlay">
+        <div class="spinner-container">
+            <div class="palette-loader">
+                <div class="palette-base"></div>
+                <div class="thumb-hole"></div>
+                <div class="paint-spots">
+                    <div class="paint-spot spot-1"></div>
+                    <div class="paint-spot spot-2"></div>
+                    <div class="paint-spot spot-3"></div>
+                    <div class="paint-spot spot-4"></div>
+                </div>
+            </div>
+            <div class="loader-logo">Malaver</div>
+        </div>
+    </div>
+
+<!-- <div *ngIf="isLoading" class="loader-overlay">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <div class="loader-logo">Malaver</div>
+  </div>
+</div> -->
+
+<div *ngIf="!isLoading" class="app-content">
+  <router-outlet></router-outlet>
+</div>

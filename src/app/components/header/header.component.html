@@ -1,0 +1,153 @@
+<!-- Agregar [class.hidden] para ocultar el header cuando el modal esté abierto -->
+<header
+  class="bg-transparent sm:bg-white/80 backdrop-blur-sm sticky top-0 z-40 border-b border-accent/30 shadow-sm transition-all duration-300"
+  [class.hidden]="!isHeaderVisible"
+  [class.-translate-y-full]="!isHeaderVisible"
+  [class.opacity-0]="!isHeaderVisible">
+
+  <div class="container mx-auto px-4">
+    <nav class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <a href="#inicio" class="text-3xl font-light text-primary-dark">
+        <span class="font-serif italic">Malaver</span>
+      </a>
+
+      <!-- Navegación desktop -->
+      <ul class="hidden md:flex space-x-8 items-center">
+        <li *ngIf="isAuthenticated">
+          <a routerLink="/admin/dashboard"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
+            {{ 'header.agregar' | transloco }}
+          </a>
+        </li>
+
+        <li>
+          <a href="#galeria"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            {{ 'header.gallery' | transloco }}
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#inicio"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            {{ 'header.artist' | transloco }}
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#tecnica"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            {{ 'header.technique' | transloco }}
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#contacto"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            {{ 'header.contact' | transloco }}
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+
+        <!-- Selector de idioma desktop -->
+        <li class="ml-4">
+          <app-language-switcher></app-language-switcher>
+        </li>
+
+        <!-- Botón de Login/Logout -->
+        <li class="ml-4">
+          <ng-container *ngIf="!isAuthenticated; else logoutTemplate">
+            <a routerLink="/admin/login" class="btn px-4 py-2 text-sm font-light">
+              <span class="mr-2">🔐</span> {{ 'header.login' | transloco }}
+            </a>
+          </ng-container>
+          <ng-template #logoutTemplate>
+            <a (click)="logout()" class="btn btn-outline px-4 py-2 text-sm font-light cursor-pointer"
+              style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
+              <span class="mr-2">🚪</span> {{ 'header.logout' | transloco }}
+            </a>
+          </ng-template>
+        </li>
+      </ul>
+
+      <!-- Botón menú móvil -->
+      <button #menuButton class="md:hidden p-2 rounded-lg bg-accent/50 hover:bg-accent/30 transition-colors" (click)="toggleMenu()">
+        <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Menú móvil mejorado -->
+    <div #mobileMenu class="md:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
+      [class.max-h-[500px]]="isMenuOpen" [class.pb-4]="isMenuOpen">
+      <ul class="space-y-2 pt-2">
+        <li *ngIf="isAuthenticated">
+          <a routerLink="/admin/dashboard"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
+            {{ 'header.agregar' | transloco }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="inicio"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="navigateAndCloseMenu('inicio')">
+            {{ 'header.artist' | transloco }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="tecnica"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="navigateAndCloseMenu('tecnica')">
+            {{ 'header.technique' | transloco }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="galeria"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="navigateAndCloseMenu('galeria')">
+            {{ 'header.gallery' | transloco }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="contacto"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="navigateAndCloseMenu('contacto')">
+            {{ 'header.contact' | transloco }}
+          </a>
+        </li>
+
+        <!-- Selector de idioma móvil - MEJORADO -->
+        <li class="px-4 pt-3 border-t border-accent/20 mt-2">
+          <div class="flex flex-col space-y-3">
+            <app-language-switcher class="mobile-language-switcher"></app-language-switcher>
+          </div>
+        </li>
+
+        <!-- Botón de Login/Logout móvil -->
+        <li class="pt-3">
+          <ng-container *ngIf="!isAuthenticated; else logoutMobileTemplate">
+            <a routerLink="/admin/login" class="block btn text-center px-4 py-3 rounded-lg"
+              (click)="isMenuOpen = false">
+              <span class="mr-2">🔐</span> {{ 'header.login' | transloco }}
+            </a>
+          </ng-container>
+          <ng-template #logoutMobileTemplate>
+            <a (click)="logout(); isMenuOpen = false"
+              class="block btn btn-outline text-center px-4 py-3 rounded-lg cursor-pointer"
+              style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
+              <span class="mr-2">🚪</span> {{ 'header.logout' | transloco }}
+            </a>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
