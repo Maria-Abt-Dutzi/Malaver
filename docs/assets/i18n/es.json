@@ -1,0 +1,252 @@
+{
+  "title": "Pintura sobre terciopelo de Colombia: {{ language }}",
+  "languages": {
+    "es": "Español",
+    "en": "Inglés",
+    "de": "Alemán"
+  },
+  "header": {
+    "agregar": "Agregar",
+    "gallery": "Galería",
+    "artist": "Artista",
+    "technique": "Técnica",
+    "contact": "Contacto",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión"
+  },
+  "hero": {
+    "title": "María Abt-Dutzi (Malaver)",
+    "specialty": "Especialista en <span class=\"font-semibold text-primary-dark\">pintura sobre terciopelo</span> con técnicas tradicionales colombianas",
+    "workDescription": "Mis obras figurativas se realizan con una técnica única de <span class=\"italic\">puntillismo sobre terciopelo</span>, donde los colores no se mezclan, creando un efecto visual distinto y contemplativo.",
+    "exploreGallery": "Explorar Galería",
+    "knowTheArtist": "Conocer a la Artista",
+    "experience": "Décadas de Experiencia",
+    "worksCreated": "Obras Creadas",
+    "exhibitions": "Exposiciones Internacionales"
+  },
+  "techniques": {
+    "title": "Especialidades Artísticas",
+    "subtitle": "Técnicas y Materiales",
+    "description": "Mi padre y maestro Guillermo Malaver me enseñó desde niña la pintura en óleo y acrílico, pero sobre todo la técnica tradicional colombiana de pintar sobre terciopelo.",
+    "card1": {
+      "title": "Pintura sobre terciopelo",
+      "description": "Una técnica tradicional colombiana poco conocida en Europa, realizada a base de puntos sobre terciopelo, evitando que los colores se mezclen."
+    },
+    "card2": {
+      "title": "Óleo y acrílico",
+      "description": "Formación en técnicas clásicas de óleo y acrílico, enseñadas por mi padre desde temprana edad."
+    },
+    "card3": {
+      "title": "Obras figurativas",
+      "description": "Mis motivos son principalmente figurativos y buscan transmitir luz, color y textura de manera única."
+    },
+    "quality": {
+      "title": "Compromiso artístico",
+      "description": "Todas mis obras llevan la firma 'Malaver' como homenaje a mi padre y mentor.",
+      "item1": "Pintura sobre terciopelo",
+      "item2": "Obras figurativas",
+      "item3": "Formación académica tradicional",
+      "experience": {
+        "title": "Una vida dedicada al arte",
+        "description": "Más de 40 años de experiencia artística reflejados en cada obra"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Colección de Obras",
+    "subtitle": "Galería de Arte",
+    "description": "Exposiciones realizadas en museos de Colombia y galerías de Europa.",
+    "results": "obras encontradas",
+    "noResults": {
+      "title": "No se encontraron obras que coincidan con tu búsqueda.",
+      "button": "🔄 Limpiar filtros"
+    },
+    "loading": "Cargando obras...",
+    "categories": {
+      "todas": "Todas",
+      "paisajismo": "Paisajismo",
+      "bodegones": "Bodegones",
+      "retratos": "Retratos",
+      "animalismo": "Animalismo",
+      "otros": "Otros"
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Contacto Directo",
+      "subtitle": "Estudio Malaver",
+      "email": {
+        "title": "Email"
+      },
+      "phone": {
+        "title": "Teléfono"
+      },
+      "studio": {
+        "title": "Estudio",
+        "address": "Bad Wörishofen, Alemania"
+      }
+    },
+    "social": {
+      "title": "Sígueme en Redes",
+      "subtitle": "Conectemos",
+      "instagram": {
+        "title": "Instagram"
+      },
+      "facebook": {
+        "title": "Facebook"
+      },
+      "twitter": {
+        "title": "Twitter"
+      }
+    },
+    "events": {
+      "title": "Exposiciones Realizadas",
+      "subtitle": "Museos y Galerías",
+      "event1": {
+        "title": "Museo de Arte Moderno, Bogotá",
+        "date": "",
+        "description": "Exposición individual en Colombia"
+      },
+      "event2": {
+        "title": "Museo La Tertulia, Cali",
+        "date": "",
+        "description": "Exposición colectiva"
+      },
+      "event3": {
+        "title": "Galería Luer, Bad Wörishofen",
+        "date": "",
+        "description": "Exposición en Alemania"
+      },
+      "event4": {
+        "title": "Galería Art Gladys, Suiza",
+        "date": "",
+        "description": "Exposición internacional"
+      }
+    },
+    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Abt-Dutzi (Malaver)</span>. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "adminLogin": {
+    "title": "Iniciar Sesión",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "login": "Ingresar",
+    "error": "Credenciales incorrectas"
+  },
+  "adminDashboard": {
+    "title": "Panel de Administración",
+    "logout": "Cerrar Sesión",
+    "addArtwork": "Agregar Nueva Obra",
+    "editArtwork": "Editar Obra",
+    "existingArtworks": "Obras Existentes",
+    "noArtworks": "No hay obras registradas. Agrega tu primera obra usando el formulario superior.",
+    "confirmDelete": "¿Estás seguro de que deseas eliminar esta obra?",
+    "form": {
+      "title": "Título *",
+      "measures": "Medidas *",
+      "technique": "Técnica *",
+      "style": "Estilo",
+      "genre": "Género *",
+      "category": "Categoría *",
+      "status": "Estado *",
+      "statusOptions": {
+        "new": "Nuevo",
+        "used": "Usado",
+        "restored": "Restaurado"
+      },
+      "price": "Precio *",
+      "currency": "Moneda *",
+      "year": "Año",
+      "sold": "Vendido *",
+      "soldOptions": {
+        "no": "No Vendido",
+        "yes": "Vendido"
+      },
+      "image": "URL de la Imagen *",
+      "description": "Descripción",
+      "cancel": "Cancelar",
+      "add": "Agregar Obra",
+      "update": "Actualizar Obra"
+    },
+    "table": {
+      "image": "Imagen",
+      "title": "Título",
+      "technique": "Técnica",
+      "price": "Precio",
+      "actions": "Acciones",
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "success": {
+      "add": "Obra agregada correctamente",
+      "update": "Obra actualizada correctamente",
+      "delete": "Obra eliminada correctamente"
+    },
+    "errors": {
+      "load": "Error al cargar las obras",
+      "save": "Error al guardar la obra",
+      "delete": "Error al eliminar la obra"
+    }
+  },
+  "artworkCarousel": {
+    "sold": "VENDIDO",
+    "zoomOut": "Toca para quitar zoom",
+    "zoomIn": "Toca para hacer zoom",
+    "panHint": "(Desliza para navegar)",
+    "dimensions": "Dimensiones:",
+    "materials": "Materiales:",
+    "year": "Año:",
+    "status": "Estado:",
+    "statusSold": "Vendido",
+    "statusAvailable": "Disponible",
+    "price": "Precio:",
+    "artworkSold": "Obra Vendida",
+    "artworkSoldDescription": "Esta pieza única ya encontró su nuevo hogar.",
+    "buyArtwork": "Comprar Obra"
+  },
+  "bio": {
+    "title": "Pintura en terciopelo de Colombia",
+    "date": "Marzo 2025",
+    "location": "Vida de la pintora María Abt-Dutzi, Bad Wörishofen",
+    "techniqueTitle": "Técnica Especializada",
+    "techniqueDescription": "Pintura sobre terciopelo utilizando la técnica tradicional colombiana de puntillismo",
+    "experienceTitle": "Experiencia",
+    "experienceYears": "Más de 40 años dedicados al arte",
+    "childhoodTitle": "Infancia y Formación",
+    "careerTitle": "Carrera Artística en Colombia",
+    "germanyTitle": "Vida y Trayectoria en Alemania",
+    "legacyTitle": "Legado Artístico",
+    "legacyDescription": "Mi obra representa la fusión de dos culturas, manteniendo vivas las técnicas tradicionales colombianas mientras las adapto al contexto europeo, creando un puente artístico entre continentes.",
+    "paragraphs": {
+      "p1": "El 29 de julio de 1952 nací en Bogotá, la capital de Colombia, como la segunda hija del pintor académico Guillermo Malaver y su esposa Margarita.",
+      "p2": "Cuando tenía unos 11 años, mi padre descubrió que había heredado su talento. A partir de ese momento, me enseñó regularmente pintura al óleo y acrílico.",
+      "p3": "En mi formación puso gran énfasis en enseñarme principalmente nuestra técnica tradicional colombiana de pintura, es decir, la pintura sobre terciopelo.",
+      "p4": "Los motivos de mis obras figurativas se realizan en esta técnica de pintura únicamente a base de puntos y no con pinceladas, ya que de lo contrario los colores se mezclarían.",
+      "p5": "Este estilo sudamericano de pintura es prácticamente desconocido en Europa y se distingue en su efecto sobre el espectador de los cuadros habituales, que están pintados exclusivamente sobre lienzo blanco.",
+      "p6": "Como agradecimiento hacia mi padre y mentor, firmo hasta hoy todas mis obras con el nombre artístico 'Malaver'.",
+      "p7": "Comencé primero estudios de psicopedagogía, pero después de un semestre me di cuenta de que mi verdadera pasión era la pintura.",
+      "p8": "A los 26 años empecé a dedicarme como pintora independiente y durante ese tiempo realicé varias exposiciones en mi país natal, entre ellas en:",
+      "p9": "En 1992 emigré a Alemania por amor. Poco después de comenzar mi nueva vida en Alemania, mi primer esposo falleció a causa de una grave enfermedad.",
+      "p10": "En 1994 conocí a mi segundo esposo, quien me animó nuevamente a retomar mis actividades artísticas.",
+      "p11": "En los últimos años vendí mis pinturas en terciopelo principalmente a particulares y a través de la galería de internet 'Artquid', y posteriormente también en exposiciones en las siguientes galerías:"
+    },
+    "exhibitionsColombia": {
+      "title": "Exposiciones en Colombia",
+      "item1": "Museo de Arte Moderno, Bogotá",
+      "item2": "Museo de la Independencia, Casa del Florero, Bogotá",
+      "item3": "Museo de Arte Colonial, Bogotá",
+      "item4": "Museo La Tertulia, Cali",
+      "item5": "MULI Museo Libre de Arte Público de Cali, Cali"
+    },
+    "exhibitionsEurope": {
+      "title": "Exposiciones en Europa",
+      "item1": "Castillo Neuburg an der Kamel",
+      "item2": "Galería 'Luer', Bad Wörishofen",
+      "item3": "Galería en el Kurhaus, Bad Wörishofen",
+      "item4": "Galería 'Art Gladys', Club de Golf Bad Ragaz (Suiza)",
+      "item5": "Galería 'Kunsthalle Art-Schöch', Stein am Rhein (Suiza)"
+    },
+    "signature": "María Abt-Dutzi (Malaver)"
+  }
+}
