@@ -203,7 +203,8 @@
     "price": "Preis:",
     "artworkSold": "Werk Verkauft",
     "artworkSoldDescription": "Dieses einzigartige Stück hat bereits sein neues Zuhause gefunden.",
-    "buyArtwork": "Werk Kaufen"
+    "buyArtwork": "Kontakt über WhatsApp",
+    "whatsAppMessage": "Hallo, ich möchte gerne mehr Informationen über das Werk '{{title}}' erhalten. Danke."
   },
   "bio": {
     "title": "Samtmalerei aus Kolumbien",

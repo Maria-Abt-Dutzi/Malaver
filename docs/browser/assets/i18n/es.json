@@ -203,7 +203,8 @@
     "price": "Precio:",
     "artworkSold": "Obra Vendida",
     "artworkSoldDescription": "Esta pieza única ya encontró su nuevo hogar.",
-    "buyArtwork": "Comprar Obra"
+    "buyArtwork": "Contacto a través de WhatsApp",
+     "whatsAppMessage": "Hola, me gustaría recibir más información sobre la obra '{{title}}'. Gracias."
   },
   "bio": {
     "title": "Pintura en terciopelo de Colombia",
