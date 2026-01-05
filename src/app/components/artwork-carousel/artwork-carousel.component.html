@@ -29,7 +29,7 @@
 <div class="artwork-info">
   <h2 class="artwork-title">{{ currentArtwork?.titulo }}</h2>
   <p class="artwork-technique">{{ currentArtwork?.tecnica }}</p>
-  <p *ngIf="currentArtwork?.descripcion" class="artwork-description">{{ currentArtwork?.descripcion }}</p>
+  <!-- <p *ngIf="currentArtwork?.descripcion" class="artwork-description">{{ currentArtwork?.descripcion }}</p> -->
 </div>
 
 <div class="dots">
@@ -50,11 +50,11 @@
     <div class="modal-body">
       <div class="modal-image-container">
         <!-- Sello de VENDIDO superpuesto en la imagen -->
-        <div *ngIf="currentArtwork?.vendido" class="sold-overlay">
+        <!-- <div *ngIf="currentArtwork?.vendido" class="sold-overlay">
           <div class="sold-badge">
             <span class="sold-text">{{ 'artworkCarousel.sold' | transloco }}</span>
           </div>
-        </div>
+        </div> -->
 
         <img
           [src]="currentArtwork?.imagen"
@@ -89,7 +89,7 @@
       <div class="modal-info">
         <h2 class="modal-title">{{ currentArtwork?.titulo }}</h2>
         <p class="modal-technique">{{ currentArtwork?.tecnica }}</p>
-        <p *ngIf="currentArtwork?.descripcion" class="modal-description">{{ currentArtwork?.descripcion }}</p>
+        <!-- <p *ngIf="currentArtwork?.descripcion" class="modal-description">{{ currentArtwork?.descripcion }}</p> -->
 
         <!-- Información adicional que podría tener la obra -->
         <div *ngIf="currentArtwork" class="artwork-details">
@@ -101,24 +101,23 @@
             <span class="detail-label">{{ 'artworkCarousel.materials' | transloco }}</span>
             <span class="detail-value">{{ currentArtwork.tecnica }}</span>
           </div>
-          <div class="detail-item">
+          <!-- <div class="detail-item">
             <span class="detail-label">{{ 'artworkCarousel.year' | transloco }}</span>
             <span class="detail-value">{{ currentArtwork.anio }}</span>
-          </div>
-          <div class="detail-item">
+          </div> -->
+          <!-- <div class="detail-item">
             <span class="detail-label">{{ 'artworkCarousel.status' | transloco }}</span>
             <span class="detail-value" [class.sold-status]="currentArtwork.vendido">
+              😁
               {{ (currentArtwork.vendido ? 'artworkCarousel.statusSold' : 'artworkCarousel.statusAvailable') | transloco }}
             </span>
-          </div>
-          <div *ngIf="!currentArtwork.vendido" class="detail-item">
+          </div> -->
+          <!-- <div class="detail-item">
             <span class="detail-label">{{ 'artworkCarousel.price' | transloco }}</span>
             <span class="detail-value price">{{ currentArtwork.precio | currency:currentArtwork.moneda:'symbol':'1.0-0' }}</span>
-          </div>
+          </div> -->
         </div>
-
-        <div class="modal-actions">
-          <!-- Mostrar sello de VENDIDO si la obra está vendida -->
+<!--
           <ng-container *ngIf="currentArtwork?.vendido; else availableTemplate">
             <div class="sold-container">
               <div class="sold-message">
@@ -127,15 +126,13 @@
                 <p class="sold-description">{{ 'artworkCarousel.artworkSoldDescription' | transloco }}</p>
               </div>
             </div>
-          </ng-container>
+          </ng-container> -->
 
-          <!-- Mostrar botones de compra si la obra está disponible -->
-          <ng-template #availableTemplate>
-            <button class="btn-buy">
-              <span class="btn-icon">🛒</span>
-              <span class="btn-text">{{ 'artworkCarousel.buyArtwork' | transloco }}</span>
-            </button>
-          </ng-template>
+        <div class="modal-actions">
+          <button class="btn-buy" (click)="goToWhatsApp()">
+            <!-- <span class="btn-icon">📲</span> -->
+            <span class="btn-text">{{ 'artworkCarousel.buyArtwork' | transloco }}</span>
+          </button>
         </div>
       </div>
     </div>

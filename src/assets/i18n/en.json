@@ -203,7 +203,8 @@
     "price": "Price:",
     "artworkSold": "Artwork Sold",
     "artworkSoldDescription": "This unique piece has already found its new home.",
-    "buyArtwork": "Buy Artwork"
+    "buyArtwork": "Contact via WhatsApp",
+     "whatsAppMessage": "Hello, I would like to receive more information about the artwork '{{title}}'. Thank you."
   },
   "bio": {
     "title": "Velvet Painting from Colombia",

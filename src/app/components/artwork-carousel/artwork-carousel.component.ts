@@ -232,4 +232,13 @@ export class ArtworkCarouselComponent implements OnInit {
   checkIfMobile() {
     this.isMobile = window.innerWidth <= 768;
   }
+
+  goToWhatsApp() {
+    const phoneNumber = '4915758741143';
+    const message = this.translocoService.translate('artworkCarousel.whatsAppMessage', {
+      title: this.currentArtwork?.titulo,
+    });
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
 }
