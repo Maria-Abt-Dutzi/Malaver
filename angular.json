@@ -34,7 +34,7 @@
             ],
             "scripts": [],
             "baseHref": "/Malaver/",
-            "deployUrl": "/Malaver/"
+            "deployUrl": ""
           },
           "configurations": {
             "production": {
