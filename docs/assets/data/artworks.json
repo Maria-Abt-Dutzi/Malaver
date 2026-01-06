@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "titulo": "Selva al amanecer",
+    "medidas": "80x60 cm",
+    "tecnica": "Óleo sobre lienzo",
+    "genero": "Paisajismo",
+    "estado": "Nuevo",
+    "precio": 850,
+    "moneda": "EUR",
+    "imagen": "https://res.cloudinary.com/dvdscvipo/image/upload/v1758381333/Labrador-001_v0vzd9.jpg",
+    "descripcion": "Esta obra captura la esencia del amanecer en las montañas, con juegos de luz y sombra que crean una atmósfera mágica."
+  }
+]
