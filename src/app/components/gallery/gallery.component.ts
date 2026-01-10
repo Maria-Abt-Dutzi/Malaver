@@ -20,7 +20,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   filteredArtworks: Artwork[] = [];
   isLoading: boolean = true;
 
-  availableCategories: string[] = ['todas', 'paisajismo', 'bodegones', 'retratos', 'animalismo', 'otros'];
+  availableCategories: string[] = ['todas', 'paisajismo', 'bodegones', 'retratos', 'animalismo' /*, 'otros' */];
   selectedCategory: string = 'todas';
   searchTerm: string = '';
 
