@@ -27,4 +27,25 @@ export class ArtistBioComponent {
     'Galería "Art Gladys", Club de Golf Bad Ragaz (Suiza)',
     'Galería "Kunsthalle Art-Schöch", Stein am Rhein (Suiza)'
   ];
+
+  certificates = [
+    {
+      url: 'https://res.cloudinary.com/dku85ztg2/image/upload/v1768068253/0_kfv3jw.jpg',
+      alt: 'Certificado 1'
+    },
+    {
+      url: 'https://res.cloudinary.com/dku85ztg2/image/upload/v1768068259/0_kubwlc.jpg',
+      alt: 'Certificado 2'
+    }
+  ];
+
+  selectedCertificate: string | null = null;
+
+  openCertificate(url: string): void {
+    this.selectedCertificate = url;
+  }
+
+  closeCertificate(): void {
+    this.selectedCertificate = null;
+  }
 }

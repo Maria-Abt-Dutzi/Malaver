@@ -59,6 +59,23 @@
               <h3 class="text-xl font-light text-primary-dark mb-3">📅 {{ 'bio.experienceTitle' | transloco }}</h3>
               <p class="text-text text-sm">{{ 'bio.experienceYears' | transloco }}</p>
             </div>
+
+            <!-- Sección de Certificados -->
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-accent/20">
+              <h3 class="text-xl font-light text-primary-dark mb-4">📜 {{ 'bio.certificatesTitle' | transloco }}</h3>
+              <div class="space-y-4">
+                <div *ngFor="let certificate of certificates"
+                     class="relative group cursor-pointer overflow-hidden rounded-xl border-2 border-accent/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl"
+                     (click)="openCertificate(certificate.url)">
+                  <img [src]="certificate.url"
+                       [alt]="certificate.alt"
+                       class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white text-lg font-medium bg-black/50 px-4 py-2 rounded-full">🔍 {{ 'bio.clickToEnlarge' | transloco }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -170,3 +187,27 @@
     </div>
   </div>
 </section>
+
+<!-- Modal para certificado en tamaño completo -->
+<div *ngIf="selectedCertificate"
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-fade-in p-4"
+     (click)="closeCertificate()">
+  <div class="relative max-w-6xl max-h-[90vh] w-full">
+    <!-- Botón de cerrar -->
+    <button class="absolute -top-12 right-0 text-white hover:text-accent transition-colors duration-300 text-4xl font-light z-10"
+            (click)="closeCertificate()">
+      ✕
+    </button>
+
+    <!-- Imagen del certificado -->
+    <div class="relative bg-white rounded-lg overflow-hidden shadow-2xl">
+      <img [src]="selectedCertificate"
+           alt="Certificado ampliado"
+           class="w-full h-auto max-h-[85vh] object-contain"
+           (click)="$event.stopPropagation()">
+    </div>
+
+    <!-- Indicador de cerrar -->
+    <p class="text-white text-center mt-4 text-sm opacity-75">{{ 'bio.clickToClose' | transloco }}</p>
+  </div>
+</div>
